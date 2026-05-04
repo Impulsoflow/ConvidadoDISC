@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação 360° Espelho • Instituto Impulso IE™</title>
+<meta name="description" content="Avaliação anônima 360° — Instituto Impulso IE™ de Liderança">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   IDENTIDADE VISUAL — IDÊNTICA AO DISC ORIGINAL
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --azul-primario: #0b4aa2;
+  --azul-escuro: #062b62;
+  --azul-medio: #0b63ce;
+  --azul-claro: #cfe6ff;
+  --dourado: #d97706;
+  --dourado-claro: #fde68a;
+  --bg-suave: #f4f9ff;
+  --texto: #0f172a;
+  --texto-claro: #475569;
+  --verde: #10b981;
+  --vermelho: #ef4444;
+  --branco: #ffffff;
+  --cinza-borda: #e2e8f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-suave) 0%, #e0f2fe 100%);
+  color: var(--texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px 12px;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HEADER PREMIUM
+   ═══════════════════════════════════════════════════════════════════ */
+.header {
+  background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
+  color: var(--branco);
+  padding: 28px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(11,74,162,0.25);
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shine 8s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30%, -30%); }
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.header .badge-360 {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--dourado), #f59e0b);
+  color: var(--branco);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.header p {
+  font-size: 13px;
+  color: var(--azul-claro);
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CARDS / SEÇÕES
+   ═══════════════════════════════════════════════════════════════════ */
+.card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid var(--cinza-borda);
+}
+
+.card h2 {
+  color: var(--azul-escuro);
+  font-size: 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card h3 {
+  color: var(--azul-primario);
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 16px;
+}
+
+.card p {
+  color: var(--texto-claro);
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BANNER ANONIMATO
+   ═══════════════════════════════════════════════════════════════════ */
+.banner-anonimo {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-left: 5px solid var(--verde);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.banner-anonimo strong {
+  color: #065f46;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-anonimo p {
+  color: #047857;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FORMULÁRIOS
+   ═══════════════════════════════════════════════════════════════════ */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--azul-escuro);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group select,
+.form-group textarea,
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: var(--branco);
+}
+
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+  box-shadow: 0 0 0 3px rgba(11,99,206,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group .hint {
+  font-size: 12px;
+  color: var(--texto-claro);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PERGUNTAS DISC
+   ═══════════════════════════════════════════════════════════════════ */
+.pergunta-bloco {
+  background: var(--bg-suave);
+  border-left: 4px solid var(--azul-medio);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+
+.pergunta-bloco.respondida {
+  border-left-color: var(--verde);
+  background: #f0fdf4;
+}
+
+.pergunta-numero {
+  display: inline-block;
+  background: var(--azul-medio);
+  color: var(--branco);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.pergunta-bloco.respondida .pergunta-numero {
+  background: var(--verde);
+}
+
+.pergunta-instrucao {
+  font-weight: 600;
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.opcoes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.opcao-disc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--branco);
+  border: 2px solid var(--cinza-borda);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+
+.opcao-disc:hover {
+  border-color: var(--azul-medio);
+  background: #eff6ff;
+}
+
+.opcao-disc input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--azul-medio);
+  cursor: pointer;
+}
+
+.opcao-disc.selecionada {
+  border-color: var(--azul-medio);
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+.opcao-letra {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: var(--azul-medio);
+  color: var(--branco);
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ESCALA LIKERT (Premium)
+   ═══════════════════════════════════════════════════════════════════ */
+.likert-pergunta {
+  background: linear-gradient(135deg, #fef3c7, #fffbeb);
+  border-left: 4px solid var(--dourado);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+
+.likert-pergunta.respondida {
+  background: #f0fdf4;
+  border-left-color: var(--verde);
+}
+
+.likert-texto {
+  font-weight: 600;
+  color: var(--azul-escuro);
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.likert-escala {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.likert-opcao {
+  text-align: center;
+  cursor: pointer;
+  padding: 12px 4px;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 8px;
+  background: var(--branco);
+  transition: all 0.2s;
+  font-size: 12px;
+}
+
+.likert-opcao:hover {
+  border-color: var(--dourado);
+  background: var(--dourado-claro);
+}
+
+.likert-opcao input[type="radio"] {
+  display: none;
+}
+
+.likert-opcao.selecionada {
+  border-color: var(--dourado);
+  background: var(--dourado-claro);
+  font-weight: bold;
+  color: #92400e;
+}
+
+.likert-numero {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROGRESSO
+   ═══════════════════════════════════════════════════════════════════ */
+.progresso-fixo {
+  position: sticky;
+  top: 10px;
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  border: 2px solid var(--azul-medio);
+}
+
+.progresso-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.progresso-info strong {
+  color: var(--azul-escuro);
+}
+
+.progresso-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--cinza-borda);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progresso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--azul-medio), var(--verde));
+  width: 0%;
+  transition: width 0.3s;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BOTÕES
+   ═══════════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--azul-medio), var(--azul-escuro));
+  color: var(--branco);
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(11,99,206,0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11,99,206,0.4);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background: linear-gradient(45deg, var(--verde), #059669);
+  color: var(--branco);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TELAS (passo a passo)
+   ═══════════════════════════════════════════════════════════════════ */
+.tela {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.tela.ativa {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TELA DE SUCESSO
+   ═══════════════════════════════════════════════════════════════════ */
+.sucesso-card {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-radius: 20px;
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(16,185,129,0.2);
+}
+
+.sucesso-icon {
+  font-size: 80px;
+  margin-bottom: 16px;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.sucesso-card h2 {
+  color: #065f46;
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.sucesso-card p {
+  color: #047857;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LOADING / ERRO
+   ═══════════════════════════════════════════════════════════════════ */
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--cinza-borda);
+  border-top: 4px solid var(--azul-medio);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.erro-card {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-left: 5px solid var(--vermelho);
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.erro-card h2 {
+  color: #991b1b;
+}
+
+.erro-card p {
+  color: #7f1d1d;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+.footer {
+  text-align: center;
+  padding: 20px 12px;
+  color: var(--texto-claro);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.footer strong {
+  color: var(--azul-escuro);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVO
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .header h1 { font-size: 20px; }
+  .card { padding: 18px; }
+  .likert-numero { font-size: 16px; }
+  .likert-opcao { padding: 10px 2px; font-size: 11px; }
+  .opcao-disc { font-size: 12px; padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ════════════════════════════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <h1>Instituto Impulso IE™ de Liderança</h1>
+    <span class="badge-360">🪞 AVALIAÇÃO 360° ESPELHO</span>
+    <p>A mudança pode acontecer em um instante</p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 0 — LOADING (validação do convite)
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-loading" class="tela ativa">
+    <div class="card loading">
+      <div class="spinner"></div>
+      <h2>Validando seu convite...</h2>
+      <p>Aguarde um instante</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA ERRO
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-erro" class="tela">
+    <div class="card erro-card">
+      <h2>⚠️ Convite Inválido</h2>
+      <p id="erro-mensagem">O link de convite não é válido ou expirou.</p>
+      <p style="margin-top:16px;">Entre em contato com quem te enviou para obter um novo link.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 1 — BOAS-VINDAS + IDENTIFICAÇÃO ANÔNIMA
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-1" class="tela">
+    <div class="card">
+      <h2>👋 Olá! Você foi convidado(a) por <span id="nome-avaliado" style="color:var(--azul-medio)"></span></h2>
+      <p>
+        <span id="nome-avaliado-2"></span> deseja crescer pessoal e profissionalmente, e o seu olhar honesto sobre ele(a) é um <strong>presente valioso</strong> nessa jornada. 🎁
+      </p>
+
+      <div class="banner-anonimo">
+        <strong>🔒 100% Anônimo</strong>
+        <p>Suas respostas são totalmente anônimas. Não pediremos seu nome, e-mail ou qualquer dado que te identifique. Apenas seu vínculo (família, amigo, colega) e tempo de convivência.</p>
+      </div>
+
+      <h3>📋 Como funciona:</h3>
+      <p>
+        ⏱️ <strong>Tempo:</strong> ~10 minutos<br>
+        📝 <strong>O que vai responder:</strong><br>
+        • 48 perguntas comportamentais (DISC em 3ª pessoa)<br>
+        • 12 perguntas premium (escala 1-5)<br>
+        • 3 campos abertos (opcionais, mas valiosos)<br>
+        💡 <strong>Dica:</strong> Responda com base no que VOCÊ observa, não no que ele(a) diz sobre si.
+      </p>
+
+      <h3>🤝 Sobre você</h3>
+
+      <div class="form-group">
+        <label>Qual sua relação com <span id="nome-avaliado-3"></span>? <span style="color:var(--vermelho)">*</span></label>
+        <select id="relacao" required>
+          <option value="">— Selecione —</option>
+          <option value="Família">👨‍👩‍👧 Família</option>
+          <option value="Amigo(a)">🤝 Amigo(a)</option>
+          <option value="Colega de trabalho">💼 Colega de trabalho</option>
+          <option value="Líder/Gestor">👔 Líder/Gestor (sou líder dele(a))</option>
+          <option value="Liderado(a)">🎯 Liderado(a) (sou liderado(a) por ele(a))</option>
+          <option value="Cliente">🏢 Cliente</option>
+          <option value="Mentor(a)/Coach">🌟 Mentor(a)/Coach</option>
+          <option value="Parceiro(a)/Cônjuge">❤️ Parceiro(a)/Cônjuge</option>
+          <option value="Outro">🔹 Outro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Há quanto tempo você o(a) conhece? <span style="color:var(--vermelho)">*</span></label>
+        <select id="tempoConvivencia" required>
+          <option value="">— Selecione —</option>
+          <option value="Menos de 6 meses">Menos de 6 meses</option>
+          <option value="6 meses a 1 ano">6 meses a 1 ano</option>
+          <option value="1 a 3 anos">1 a 3 anos</option>
+          <option value="3 a 5 anos">3 a 5 anos</option>
+          <option value="5 a 10 anos">5 a 10 anos</option>
+          <option value="Mais de 10 anos">Mais de 10 anos</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" onclick="avancarTela1()">
+        Começar Avaliação ➜
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 2 — 48 PERGUNTAS DISC (em 3ª pessoa)
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-2" class="tela">
+
+    <div class="progresso-fixo">
+      <div class="progresso-info">
+        <strong>📊 Parte 1 de 3 — Perfil DISC</strong>
+        <span><span id="progresso-disc">0</span> / 12 grupos</span>
+      </div>
+      <div class="progresso-bar">
+        <div class="progresso-fill" id="progresso-fill-disc"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Como você vê <span id="nome-avaliado-4"></span></h2>
+      <p>
+        Em cada grupo abaixo, escolha a opção que <strong>MAIS</strong> descreve <span id="nome-avaliado-5"></span> e a que <strong>MENOS</strong> descreve. Pense no comportamento dele(a) na maior parte do tempo.
+      </p>
+
+      <div id="container-perguntas-disc">
+        <!-- Perguntas DISC inseridas via JavaScript -->
+      </div>
+
+      <button class="btn btn-primary" id="btn-avancar-2" onclick="avancarTela2()" disabled>
+        Avançar para Parte 2 ➜
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 3 — 12 PERGUNTAS PREMIUM (Likert 1-5)
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-3" class="tela">
+
+    <div class="progresso-fixo">
+      <div class="progresso-info">
+        <strong>⭐ Parte 2 de 3 — Avaliação Premium</strong>
+        <span><span id="progresso-premium">0</span> / 12</span>
+      </div>
+      <div class="progresso-bar">
+        <div class="progresso-fill" id="progresso-fill-premium"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⭐ Avaliação Premium — Liderança & Inteligência Emocional</h2>
+      <p>
+        Para cada afirmação, indique o quanto ela descreve <span id="nome-avaliado-6"></span>.<br>
+        <strong>Escala:</strong> 1 = Discordo totalmente | 5 = Concordo totalmente
+      </p>
+
+      <div id="container-perguntas-premium">
+        <!-- Perguntas Premium inseridas via JavaScript -->
+      </div>
+
+      <button class="btn btn-primary" id="btn-avancar-3" onclick="avancarTela3()" disabled>
+        Avançar para Parte 3 ➜
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 4 — CAMPOS ABERTOS (SBI)
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-4" class="tela">
+    <div class="card">
+      <h2>💬 Parte 3 de 3 — Feedback Qualitativo</h2>
+      <p>
+        Estes campos são <strong>opcionais</strong>, mas seu feedback aqui faz toda a diferença!
+        <br>Use o método <strong>SBI</strong> (Situação → Comportamento → Impacto) sempre que possível.
+      </p>
+
+      <div class="form-group">
+        <label>💎 Qual a MAIOR FORÇA de <span id="nome-avaliado-7"></span>?</label>
+        <textarea id="forcaPrincipal" placeholder="Ex: Em reuniões de equipe (situação), ela acolhe todas as opiniões com atenção (comportamento), o que faz todos se sentirem valorizados e mais engajados (impacto)."></textarea>
+        <span class="hint">Pense em algo que você admira nele(a)</span>
+      </div>
+
+      <div class="form-group">
+        <label>🌱 Qual ponto ele(a) poderia MELHORAR?</label>
+        <textarea id="pontoMelhoria" placeholder="Ex: Em momentos de pressão (situação), tende a tomar decisões muito rápidas sozinho (comportamento), o que pode deixar a equipe sem clareza (impacto)."></textarea>
+        <span class="hint">Seja honesto, mas construtivo. Foque em comportamento, não em personalidade.</span>
+      </div>
+
+      <div class="form-group">
+        <label>💡 Que sugestão prática você daria?</label>
+        <textarea id="sugestaoSBI" placeholder="Ex: Antes de decisões importantes, fazer uma reunião rápida de 10min para alinhar com a equipe."></textarea>
+        <span class="hint">Uma ação concreta que ele(a) poderia experimentar</span>
+      </div>
+
+      <button class="btn btn-primary" onclick="enviarFormulario()" id="btn-enviar">
+        🚀 Enviar Avaliação
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TELA 5 — SUCESSO
+       ════════════════════════════════════════════════════════════════ -->
+  <div id="tela-sucesso" class="tela">
+    <div class="sucesso-card">
+      <div class="sucesso-icon">🎉</div>
+      <h2>Obrigado por contribuir!</h2>
+      <p>Sua avaliação foi registrada com sucesso e <strong>de forma totalmente anônima</strong>.</p>
+      <p style="margin-top:16px;">
+        Seu olhar honesto é um presente valioso para o crescimento de <strong id="nome-avaliado-8"></strong>. 💎
+      </p>
+      <p style="margin-top:24px;font-size:13px;color:#065f46;">
+        Você pode fechar esta janela. ✨
+      </p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footer">
+    <strong>Instituto Impulso IE™ de Liderança</strong><br>
+    Rogério Braga • Especialista em Inteligência Emocional<br>
+    impulsoflow@gmail.com
+  </div>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   CONFIGURAÇÕES — JÁ COM SUAS URLs
+   ═══════════════════════════════════════════════════════════════════ */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwl82lCSU8x1-QYIO3W-JcO0UsuOXCdZACvcHaSdVyFMR2udcCNdDFKDyT5kYB2wORgQ/exec";
+const API_KEY = "2026Impulso$";
+
+/* ═══════════════════════════════════════════════════════════════════
+   ESTADO GLOBAL
+   ═══════════════════════════════════════════════════════════════════ */
+let sessionId = null;
+let nomeAvaliado = "";
+
+// 48 respostas DISC (cada índice = 0=D, 1=I, 2=S, 3=C, etc.)
+const respostasDisc = new Array(48).fill(0);
+
+// 12 respostas Premium (1-5)
+const respostasPremium = new Array(12).fill(0);
+
+/* ═══════════════════════════════════════════════════════════════════
+   PERGUNTAS DISC EM 3ª PESSOA (12 grupos × 4 opções = 48)
+   Estrutura: [D, I, S, C] em cada grupo
+   ═══════════════════════════════════════════════════════════════════ */
+const perguntasDisc = [
+  {
+    titulo: "Quando enfrenta desafios, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Toma decisões rápidas e age imediatamente" },
+      { letra: "I", texto: "Conversa com pessoas e busca apoio" },
+      { letra: "S", texto: "Avalia com calma e mantém a estabilidade" },
+      { letra: "C", texto: "Analisa todos os detalhes antes de agir" }
+    ]
+  },
+  {
+    titulo: "No ambiente de trabalho, ele(a) é mais...",
+    opcoes: [
+      { letra: "D", texto: "Direto(a), focado(a) em resultados" },
+      { letra: "I", texto: "Comunicativo(a), entusiasmado(a)" },
+      { letra: "S", texto: "Calmo(a), colaborativo(a)" },
+      { letra: "C", texto: "Detalhista, organizado(a)" }
+    ]
+  },
+  {
+    titulo: "Diante de mudanças, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Lidera a mudança e gosta de novidades" },
+      { letra: "I", texto: "Se adapta facilmente e influencia outros" },
+      { letra: "S", texto: "Prefere estabilidade e demora para mudar" },
+      { letra: "C", texto: "Quer entender bem antes de mudar" }
+    ]
+  },
+  {
+    titulo: "Em decisões importantes, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Decide rápido baseado em intuição" },
+      { letra: "I", texto: "Decide consultando outras pessoas" },
+      { letra: "S", texto: "Decide com cautela e ponderação" },
+      { letra: "C", texto: "Decide após análise minuciosa de dados" }
+    ]
+  },
+  {
+    titulo: "Ao se comunicar, ele(a) tende a ser...",
+    opcoes: [
+      { letra: "D", texto: "Direto(a) e objetivo(a)" },
+      { letra: "I", texto: "Expressivo(a) e envolvente" },
+      { letra: "S", texto: "Paciente e atencioso(a)" },
+      { letra: "C", texto: "Preciso(a) e cuidadoso(a)" }
+    ]
+  },
+  {
+    titulo: "Em momentos de conflito, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Confronta diretamente e busca solução rápida" },
+      { letra: "I", texto: "Tenta convencer e manter o clima leve" },
+      { letra: "S", texto: "Evita conflitos e busca harmonia" },
+      { letra: "C", texto: "Analisa fatos e busca a solução correta" }
+    ]
+  },
+  {
+    titulo: "Ao trabalhar em equipe, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Lidera e direciona o time" },
+      { letra: "I", texto: "Motiva e energiza o grupo" },
+      { letra: "S", texto: "Apoia e mantém a coesão" },
+      { letra: "C", texto: "Garante qualidade e padrões" }
+    ]
+  },
+  {
+    titulo: "Diante de prazos apertados, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Acelera o ritmo e cobra resultados" },
+      { letra: "I", texto: "Mantém o astral e mobiliza pessoas" },
+      { letra: "S", texto: "Mantém a calma e segue o plano" },
+      { letra: "C", texto: "Revisa o cronograma com cuidado" }
+    ]
+  },
+  {
+    titulo: "Em situações sociais, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Toma a iniciativa e lidera conversas" },
+      { letra: "I", texto: "É o centro das atenções, faz amigos rápido" },
+      { letra: "S", texto: "Escuta mais do que fala, é acolhedor(a)" },
+      { letra: "C", texto: "Observa primeiro, depois interage" }
+    ]
+  },
+  {
+    titulo: "Ao receber feedback, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Aceita rápido e parte para a ação" },
+      { letra: "I", texto: "Reage emocionalmente, depois reflete" },
+      { letra: "S", texto: "Escuta com paciência e considera" },
+      { letra: "C", texto: "Quer entender os fatos e exemplos" }
+    ]
+  },
+  {
+    titulo: "Sob pressão, ele(a)...",
+    opcoes: [
+      { letra: "D", texto: "Fica mais autoritário(a) e impaciente" },
+      { letra: "I", texto: "Fica mais ansioso(a) e falante" },
+      { letra: "S", texto: "Fica mais retraído(a) e silencioso(a)" },
+      { letra: "C", texto: "Fica mais crítico(a) e perfeccionista" }
+    ]
+  },
+  {
+    titulo: "Sua maior força é...",
+    opcoes: [
+      { letra: "D", texto: "Determinação e foco em resultados" },
+      { letra: "I", texto: "Carisma e capacidade de influenciar" },
+      { letra: "S", texto: "Lealdade e capacidade de apoiar" },
+      { letra: "C", texto: "Precisão e busca pela excelência" }
+    ]
+  }
+];
+
+/* ═══════════════════════════════════════════════════════════════════
+   PERGUNTAS PREMIUM (Likert 1-5)
+   ═══════════════════════════════════════════════════════════════════ */
+const perguntasPremium = [
+  "Demonstra autocontrole emocional em situações desafiadoras",
+  "Escuta ativamente as opiniões dos outros antes de responder",
+  "Inspira confiança em quem está ao seu redor",
+  "Comunica-se de forma clara e respeitosa",
+  "Reconhece e valoriza as contribuições das pessoas",
+  "Toma decisões com responsabilidade e maturidade",
+  "Demonstra empatia genuína com os sentimentos dos outros",
+  "É confiável e cumpre o que promete",
+  "Adapta seu comportamento conforme a situação exige",
+  "Lida bem com críticas e feedbacks",
+  "Mantém a calma sob pressão",
+  "Inspira pessoas a darem o seu melhor"
+];
+
+/* ═══════════════════════════════════════════════════════════════════
+   INICIALIZAÇÃO — VALIDA O CONVITE
+   ═══════════════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', async () => {
+  // Pega ?id= da URL
+  const params = new URLSearchParams(window.location.search);
+  sessionId = params.get('id');
+
+  if (!sessionId) {
+    mostrarErro("Link inválido. Não foi encontrado o identificador do convite.");
+    return;
+  }
+
+  // Valida no backend
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        apiKey: API_KEY,
+        action: 'validateInvite',
+        sessionId: sessionId
+      })
+    });
+
+    const data = await res.json();
+
+    if (!data.ok) {
+      mostrarErro(data.error || "Convite inválido");
+      return;
+    }
+
+    nomeAvaliado = data.nomeAvaliado;
+    preencherNomeAvaliado(nomeAvaliado);
+    mostrarTela('tela-1');
+
+  } catch (err) {
+    console.error(err);
+    mostrarErro("Erro ao validar convite. Verifique sua conexão e tente novamente.");
+  }
+});
+
+/* ═══════════════════════════════════════════════════════════════════
+   HELPERS DE TELA
+   ═══════════════════════════════════════════════════════════════════ */
+function mostrarTela(id) {
+  document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+  document.getElementById(id).classList.add('ativa');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function mostrarErro(msg) {
+  document.getElementById('erro-mensagem').textContent = msg;
+  mostrarTela('tela-erro');
+}
+
+function preencherNomeAvaliado(nome) {
+  ['nome-avaliado', 'nome-avaliado-2', 'nome-avaliado-3',
+   'nome-avaliado-4', 'nome-avaliado-5', 'nome-avaliado-6',
+   'nome-avaliado-7', 'nome-avaliado-8'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = nome;
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TELA 1 → TELA 2 (validação)
+   ═══════════════════════════════════════════════════════════════════ */
+function avancarTela1() {
+  const relacao = document.getElementById('relacao').value;
+  const tempo = document.getElementById('tempoConvivencia').value;
+
+  if (!relacao || !tempo) {
+    alert("⚠️ Por favor, preencha sua relação e tempo de convivência.");
+    return;
+  }
+
+  renderizarPerguntasDisc();
+  mostrarTela('tela-2');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RENDERIZAR PERGUNTAS DISC
+   ═══════════════════════════════════════════════════════════════════ */
+function renderizarPerguntasDisc() {
+  const container = document.getElementById('container-perguntas-disc');
+  container.innerHTML = '';
+
+  perguntasDisc.forEach((grupo, idxGrupo) => {
+    const div = document.createElement('div');
+    div.className = 'pergunta-bloco';
+    div.id = `grupo-disc-${idxGrupo}`;
+
+    let html = `
+      <span class="pergunta-numero">Grupo ${idxGrupo + 1} de 12</span>
+      <div class="pergunta-instrucao">${grupo.titulo}</div>
+      <p style="font-size:12px;color:var(--texto-claro);margin-bottom:10px;">
+        Distribua os pesos: <strong>4 = MAIS descreve</strong> | <strong>1 = MENOS descreve</strong>
+      </p>
+      <div class="opcoes-grid">
+    `;
+
+    grupo.opcoes.forEach((op, idxOp) => {
+      const idxGlobal = idxGrupo * 4 + idxOp;
+      html += `
+        <div class="opcao-disc-container" data-grupo="${idxGrupo}" data-opcao="${idxOp}">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+            <span class="opcao-letra">${op.letra}</span>
+            <span style="flex:1;font-size:13px;">${op.texto}</span>
+          </div>
+          <div style="display:flex;gap:6px;justify-content:flex-end;">
+            ${[1, 2, 3, 4].map(v => `
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:12px;background:#fff;padding:4px 8px;border:1px solid #cbd5e1;border-radius:6px;">
+                <input type="radio" name="disc-${idxGrupo}-${idxOp}" value="${v}"
+                       onchange="setDiscResposta(${idxGrupo}, ${idxOp}, ${v})">
+                ${v}
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    });
+
+    html += '</div>';
+    div.innerHTML = html;
+    container.appendChild(div);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   REGISTRAR RESPOSTA DISC
+   ═══════════════════════════════════════════════════════════════════ */
+function setDiscResposta(grupo, opcao, valor) {
+  const idxGlobal = grupo * 4 + opcao;
+  respostasDisc[idxGlobal] = valor;
+
+  // Verifica se o grupo está completo (todas 4 opções respondidas com valores únicos 1-4)
+  const respostasGrupo = [
+    respostasDisc[grupo * 4],
+    respostasDisc[grupo * 4 + 1],
+    respostasDisc[grupo * 4 + 2],
+    respostasDisc[grupo * 4 + 3]
+  ];
+
+  const completo = respostasGrupo.every(r => r > 0);
+  const valoresUnicos = new Set(respostasGrupo).size === 4 && !respostasGrupo.includes(0);
+
+  const divGrupo = document.getElementById(`grupo-disc-${grupo}`);
+  if (completo && valoresUnicos) {
+    divGrupo.classList.add('respondida');
+  } else {
+    divGrupo.classList.remove('respondida');
+  }
+
+  atualizarProgressoDisc();
+}
+
+function atualizarProgressoDisc() {
+  let gruposCompletos = 0;
+  for (let g = 0; g < 12; g++) {
+    const respostasGrupo = [
+      respostasDisc[g * 4], respostasDisc[g * 4 + 1],
+      respostasDisc[g * 4 + 2], respostasDisc[g * 4 + 3]
+    ];
+    if (respostasGrupo.every(r => r > 0) && new Set(respostasGrupo).size === 4) {
+      gruposCompletos++;
+    }
+  }
+
+  document.getElementById('progresso-disc').textContent = gruposCompletos;
+  document.getElementById('progresso-fill-disc').style.width = (gruposCompletos / 12 * 100) + '%';
+  document.getElementById('btn-avancar-2').disabled = gruposCompletos < 12;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TELA 2 → TELA 3 (validação)
+   ═══════════════════════════════════════════════════════════════════ */
+function avancarTela2() {
+  // Valida que todos os grupos têm valores únicos 1-4
+  for (let g = 0; g < 12; g++) {
+    const respostasGrupo = [
+      respostasDisc[g * 4], respostasDisc[g * 4 + 1],
+      respostasDisc[g * 4 + 2], respostasDisc[g * 4 + 3]
+    ];
+    if (new Set(respostasGrupo).size !== 4 || respostasGrupo.includes(0)) {
+      alert(`⚠️ No Grupo ${g + 1}, você precisa atribuir valores diferentes (1, 2, 3 e 4) — um para cada opção.`);
+      return;
+    }
+  }
+
+  renderizarPerguntasPremium();
+  mostrarTela('tela-3');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RENDERIZAR PERGUNTAS PREMIUM
+   ═══════════════════════════════════════════════════════════════════ */
+function renderizarPerguntasPremium() {
+  const container = document.getElementById('container-perguntas-premium');
+  container.innerHTML = '';
+
+  perguntasPremium.forEach((pergunta, idx) => {
+    const div = document.createElement('div');
+    div.className = 'likert-pergunta';
+    div.id = `premium-${idx}`;
+
+    div.innerHTML = `
+      <div class="likert-texto">${idx + 1}. ${pergunta}</div>
+      <div class="likert-escala">
+        ${[1, 2, 3, 4, 5].map(v => `
+          <label class="likert-opcao" data-idx="${idx}" data-valor="${v}" onclick="setPremiumResposta(${idx}, ${v})">
+            <input type="radio" name="premium-${idx}" value="${v}">
+            <span class="likert-numero">${v}</span>
+            <span>${getLikertLabel(v)}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function getLikertLabel(v) {
+  return ['Discordo<br>totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo<br>totalmente'][v - 1];
+}
+
+function setPremiumResposta(idx, valor) {
+  respostasPremium[idx] = valor;
+
+  // Visual
+  document.querySelectorAll(`[data-idx="${idx}"]`).forEach(el => el.classList.remove('selecionada'));
+  document.querySelector(`[data-idx="${idx}"][data-valor="${valor}"]`).classList.add('selecionada');
+  document.getElementById(`premium-${idx}`).classList.add('respondida');
+
+  atualizarProgressoPremium();
+}
+
+function atualizarProgressoPremium() {
+  const respondidas = respostasPremium.filter(r => r > 0).length;
+  document.getElementById('progresso-premium').textContent = respondidas;
+  document.getElementById('progresso-fill-premium').style.width = (respondidas / 12 * 100) + '%';
+  document.getElementById('btn-avancar-3').disabled = respondidas < 12;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TELA 3 → TELA 4
+   ═══════════════════════════════════════════════════════════════════ */
+function avancarTela3() {
+  if (respostasPremium.some(r => r === 0)) {
+    alert("⚠️ Por favor, responda todas as 12 perguntas premium.");
+    return;
+  }
+  mostrarTela('tela-4');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ENVIAR FORMULÁRIO COMPLETO
+   ═══════════════════════════════════════════════════════════════════ */
+async function enviarFormulario() {
+  const btn = document.getElementById('btn-enviar');
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando...';
+
+  const payload = {
+    apiKey: API_KEY,
+    action: 'submitConvidado',
+    sessionId: sessionId,
+    relacao: document.getElementById('relacao').value,
+    tempoConvivencia: document.getElementById('tempoConvivencia').value,
+    respostas: respostasDisc,
+    premium: respostasPremium,
+    forcaPrincipal: document.getElementById('forcaPrincipal').value.trim(),
+    pontoMelhoria: document.getElementById('pontoMelhoria').value.trim(),
+    sugestaoSBI: document.getElementById('sugestaoSBI').value.trim()
+  };
+
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (data.ok) {
+      mostrarTela('tela-sucesso');
+    } else {
+      alert("⚠️ Erro ao enviar: " + (data.error || "Erro desconhecido"));
+      btn.disabled = false;
+      btn.textContent = '🚀 Enviar Avaliação';
+    }
+  } catch (err) {
+    console.error(err);
+    alert("⚠️ Erro de conexão. Tente novamente.");
+    btn.disabled = false;
+    btn.textContent = '🚀 Enviar Avaliação';
+  }
+}
+</script>
+
+</body>
+</html>
