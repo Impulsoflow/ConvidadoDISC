@@ -1083,8 +1083,11 @@ const API_KEY = "2026Impulso$";
 
 /* Pega o sessionId da URL (?id=XYZ) */
 const urlParams = new URLSearchParams(window.location.search);
-const SESSION_ID = urlParams.get('id');
-
+const TOKEN = urlParams.get('token');
+const PIN = urlParams.get('pin');
+const NOME_AVALIADO = urlParams.get('nome');
+const PROF_AVALIADO = urlParams.get('prof');
+  
 /* Estado global da avaliação */
 let avaliadoData = null;
 let relacaoSelecionada = null;
@@ -1216,34 +1219,39 @@ let premResponses = new Array(premiumDimensions.length).fill(null);
 /* ═══════════════════════════════════════════════════════════════
    🚀 INICIALIZAÇÃO
    ═══════════════════════════════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', async () => {
-  if (!SESSION_ID) {
-    document.getElementById('error-message').textContent = 'Nenhum identificador de sessão foi encontrado na URL. Verifique o link enviado.';
+  window.addEventListener('DOMContentLoaded', () => {
+  if (!TOKEN || !PIN || !NOME_AVALIADO) {
+    document.getElementById('error-message').textContent = 'Link inválido ou incompleto. Verifique o convite que você recebeu por e-mail.';
     showStep('step-error');
     return;
   }
 
-  await validarConvite();
+  carregarDadosAvaliado();
 });
 
-async function validarConvite() {
+function carregarDadosAvaliado() {
   try {
-    const response = await fetch(`${WEB_APP_URL}?action=validateSession&sessionId=${SESSION_ID}&apiKey=${encodeURIComponent(API_KEY)}`);
-    const data = await response.json();
+    /* Lê nome e profissão diretamente da URL (vindos do DiscAvaliado.html) */
+    const nome = toTitleCase(decodeURIComponent(NOME_AVALIADO || ''));
+    const prof = PROF_AVALIADO ? toTitleCase(decodeURIComponent(PROF_AVALIADO)) : '';
 
-    if (!data.success) {
-      document.getElementById('error-message').textContent = data.message || 'Convite não encontrado ou expirado.';
+    if (!nome) {
+      document.getElementById('error-message').textContent = 'Não foi possível identificar a pessoa avaliada. Link inválido.';
       showStep('step-error');
       return;
     }
 
-    avaliadoData = data.userData;
+    /* Guarda dados em memória para uso posterior */
+    avaliadoData = {
+      name: nome,
+      occupation: prof,
+      token: TOKEN,
+      pin: PIN
+    };
 
-    /* Preenche o nome em todos os pontos */
-    const nome = toTitleCase(avaliadoData.name || '');
+    /* Preenche o nome em todos os pontos da interface */
     document.getElementById('welcome-avaliado-nome').textContent = nome;
-    document.getElementById('welcome-avaliado-info').textContent = avaliadoData.occupation
-      ? `${toTitleCase(avaliadoData.occupation)}` : '';
+    document.getElementById('welcome-avaliado-info').textContent = prof || '';
     document.getElementById('disc-avaliado-nome').textContent = nome;
     document.getElementById('prem-avaliado-nome').textContent = nome;
     document.getElementById('feedback-avaliado-nome').textContent = nome;
@@ -1251,12 +1259,11 @@ async function validarConvite() {
 
     showStep('step-welcome');
   } catch (err) {
-    console.error('Erro ao validar convite:', err);
-    document.getElementById('error-message').textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+    console.error('Erro ao carregar dados:', err);
+    document.getElementById('error-message').textContent = 'Erro ao processar o link. Verifique e tente novamente.';
     showStep('step-error');
   }
 }
-
 /* ═══════════════════════════════════════════════════════════════
    🛠️ FUNÇÕES UTILITÁRIAS
    ═══════════════════════════════════════════════════════════════ */
@@ -1556,9 +1563,12 @@ async function enviarAvaliacao() {
   const payload = {
     apiKey: API_KEY,
     action: 'saveAvaliacao360',
-    sessionId: SESSION_ID,
+    token: TOKEN,
+    pin: PIN,
+    nomeAvaliado: avaliadoData.name,
+    profissaoAvaliado: avaliadoData.occupation,
     timestamp: new Date().toISOString(),
-
+     
     /* Contexto anônimo do avaliador */
     contexto: {
       relacao: relacaoSelecionada,
