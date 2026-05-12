@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avaliação 360° Espelho - Instituto Impulso IE™ de Liderança</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg1: #0b4aa2;
+      --bg2: #062b62;
+      --surface: #f4f9ff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #0b63ce;
+      --primary2: #084aa0;
+      --accent: #38bdf8;
+      --gold: #d97706;
+      --gold2: #b45309;
+      --d: #cc0000;
+      --i: #d97706;
+      --s: #005ce6;
+      --c: #00994d;
+      --shadow: 0 14px 34px rgba(2,32,71,.18);
+      --shadow2: 0 8px 20px rgba(2,32,71,.12);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(56,189,248,.35), transparent 55%),
+        radial-gradient(900px 600px at 85% 15%, rgba(255,215,0,.10), transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      line-height: 1.7;
+      padding: 18px;
+    }
+
+    .shell {
+      max-width: 920px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(244,249,255,.97), rgba(244,249,255,.94));
+      border: 1px solid rgba(56,189,248,.35);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .shell::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--d), var(--i), var(--s), var(--c));
+    }
+
+    .wrap { padding: 26px; }
+
+    .header {
+      text-align: center;
+      padding: 6px 0 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(11,99,206,.08);
+    }
+
+    .main-title {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      font-weight: normal;
+      color: #64748b;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      margin: 6px 0 0;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+      letter-spacing: .01em;
+      font-family: Arial, sans-serif;
+      line-height: 1.25;
+    }
+
+    .sub-title {
+      margin: 8px 0 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      line-height: 1.15;
+      color: #063b7a;
+      font-weight: normal;
+      letter-spacing: -0.01em;
+    }
+
+    .header-desc {
+      margin: 12px auto 0;
+      max-width: 75ch;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .step { display: none; }
+    .step.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(207,230,255,.95);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+    }
+
+    .welcome-hero {
+      background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.15);
+    }
+    .welcome-hero .icon-360 { font-size: 48px; margin-bottom: 10px; }
+    .welcome-hero h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+      color: #92400e;
+      font-family: Arial, sans-serif;
+    }
+    .welcome-hero .subtitle {
+      font-size: 15px;
+      color: #78350f;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .avaliado-card {
+      background: #fff;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 16px auto;
+      max-width: 480px;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.10);
+    }
+    .avaliado-card .label {
+      font-size: 11px;
+      color: #92400e;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+      margin-bottom: 6px;
+    }
+    .avaliado-card .nome {
+      font-size: 28px;
+      font-weight: 900;
+      color: #062b62;
+      font-family: Arial, sans-serif;
+      margin: 4px 0;
+    }
+    .avaliado-card .info { font-size: 13px; color: #475569; margin-top: 4px; }
+
+    .instructions {
+      background: linear-gradient(180deg, rgba(56,189,248,.14), rgba(56,189,248,.08));
+      border: 1px solid rgba(56,189,248,.25);
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius2);
+      padding: 18px;
+      margin: 14px 0 18px;
+    }
+    .instructions p, .instructions li {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--text);
+      text-align: justify;
+    }
+    .instructions ul { margin: 8px 0 0 0; padding-left: 18px; }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #d1fae5;
+      color: #065f46;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      font-family: Arial, sans-serif;
+      margin-top: 10px;
+      border: 1.5px solid #10b981;
+    }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-weight: 800;
+      color: #063b7a;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+    }
+    .field { position: relative; }
+    .field svg {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 18px; height: 18px; color: #64748b; z-index: 2; pointer-events: none;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 14px 14px 14px 44px; border: 1.5px solid rgba(11,99,206,.28);
+      border-radius: 12px; font-size: 15px; background: #fff; outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease; font-family: 'Poppins', sans-serif;
+    }
+    .field textarea { padding: 14px; resize: vertical; min-height: 110px; line-height: 1.6; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: rgba(11,99,206,.55); box-shadow: 0 0 0 4px rgba(56,189,248,.22);
+    }
+    .input-error { border-color: #dc2626 !important; background: #fef2f2 !important; }
+    .field-error { color: #dc2626; font-size: 12px; font-weight: 700; font-family: Arial, sans-serif; display: block; margin-top: 4px; }
+    .field-counter {
+      position: absolute;
+      bottom: 8px; right: 12px;
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0 12px;
+    }
+    .counter { font-weight: 800; color: #0b2a52; font-size: 14px; font-family: Arial, sans-serif; }
+    .progress-meta { font-weight: 700; color: var(--muted); font-size: 13px; font-family: Arial, sans-serif; }
+    .progress-bar {
+      width: 100%;
+      background: #e6eefc;
+      border-radius: 999px;
+      overflow: hidden;
+      height: 12px;
+      border: 1px solid rgba(11,99,206,.12);
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      transition: width .35s ease-in-out;
+    }
+
+    .etapa-breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 12px 0 16px;
+      flex-wrap: wrap;
+    }
+    .etapa-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      font-family: Arial, sans-serif;
+      background: #e2e8f0;
+      color: #64748b;
+      border: 1px solid transparent;
+    }
+    .etapa-item.active {
+      background: linear-gradient(45deg, var(--primary), var(--primary2));
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 10px rgba(11,99,206,.25);
+    }
+    .etapa-item.done {
+      background: #d1fae5;
+      color: #065f46;
+      border-color: #10b981;
+    }
+    .etapa-item.done::before { content: '✓ '; }
+
+    .question-card { margin-top: 12px; padding: 28px; }
+    .question-title {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.45;
+    }
+    .question-helper {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: -2px;
+      margin-bottom: 18px;
+      font-family: Arial, sans-serif;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .opt {
+      border: 1.5px solid rgba(11,99,206,.22);
+      background: rgba(11,99,206,.06);
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: all .15s ease;
+      min-height: 88px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      color: #0b2a52;
+      font-size: 13px;
+      flex: 0 1 calc(20% - 10px);
+      max-width: 175px;
+      min-width: 130px;
+      line-height: 1.25;
+      gap: 4px;
+    }
+    .opt-num { font-size: 22px; font-weight: 900; font-family: Arial, sans-serif; line-height: 1; }
+    .opt small { font-size: 12px; color: inherit; font-weight: 800; line-height: 1.25; font-family: Arial, sans-serif; }
+    @media (max-width: 880px) { .opt { flex: 0 1 calc(50% - 10px); min-width: 140px; } }
+    /* .opt mobile: ver bloco @media (max-width: 480px) abaixo */
+
+    .opt:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 18px rgba(2,32,71,.10);
+      border-color: rgba(56,189,248,.55);
+    }
+    .opt.selected {
+      background: linear-gradient(45deg, var(--primary), var(--primary2));
+      border-color: rgba(11,99,206,.55);
+      color: #fff;
+      box-shadow: 0 14px 22px rgba(11,99,206,.22);
+      font-weight: 700;
+    }
+
+    .premium-card {
+      background: #fff;
+      border: 1px solid rgba(207,230,255,.95);
+      border-radius: 16px;
+      padding: 22px;
+      margin: 12px 0;
+      box-shadow: var(--shadow2);
+    }
+    .premium-dimension { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .premium-icon { font-size: 28px; }
+    .premium-title { flex: 1; }
+    .premium-title h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 900;
+      color: #0f172a;
+      font-family: Arial, sans-serif;
+    }
+    .premium-title p { margin: 4px 0 0; font-size: 13px; color: #64748b; font-weight: 600; }
+    .premium-scale { display: flex; gap: 8px; justify-content: space-between; margin: 14px 0 8px; }
+    .scale-opt {
+      flex: 1;
+      padding: 14px 8px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .scale-opt .num { font-size: 22px; font-weight: 900; color: #0b2a52; }
+    .scale-opt .lbl { font-size: 10px; color: #64748b; font-weight: 800; margin-top: 4px; line-height: 1.2; }
+    .scale-opt:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .scale-opt.selected {
+      background: linear-gradient(45deg, var(--primary), var(--primary2));
+      border-color: var(--primary2);
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(11,99,206,.20);
+    }
+    .scale-opt.selected .num,
+    .scale-opt.selected .lbl { color: #fff; }
+    .scale-anchors {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #94a3b8;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      margin-top: 4px;
+      padding: 0 4px;
+    }
+
+    .relacao-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .relacao-opt {
+      padding: 14px 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: #fff;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: #475569;
+    }
+    .relacao-opt .icon { font-size: 26px; margin-bottom: 6px; display: block; }
+    .relacao-opt:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .relacao-opt.selected {
+      background: linear-gradient(45deg, var(--primary), var(--primary2));
+      border-color: var(--primary2);
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(11,99,206,.20);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .btn-primary {
+      background: linear-gradient(45deg, var(--primary), var(--primary2));
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(11,99,206,.22);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: saturate(1.05);
+      box-shadow: 0 14px 26px rgba(11,99,206,.30);
+    }
+    .btn-gold {
+      background: linear-gradient(45deg, var(--gold), var(--gold2));
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(217,119,6,.22);
+    }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 14px 26px rgba(217,119,6,.30); }
+    .btn-ghost {
+      background: #fff;
+      color: #0b2a52;
+      border: 1.5px solid rgba(11,99,206,.22);
+      box-shadow: 0 8px 16px rgba(2,32,71,.08);
+    }
+    .btn-ghost:hover { transform: translateY(-1px); border-color: rgba(56,189,248,.55); }
+    .btn:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .btn-block { width: 100%; justify-content: center; font-size: 16px; padding: 16px; }
+
+    .finish-hero { text-align: center; padding: 30px 20px; }
+    .finish-icon {
+      font-size: 80px;
+      margin-bottom: 16px;
+      animation: bounce 1s ease infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    .finish-hero h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #062b62;
+      font-family: Arial, sans-serif;
+      margin: 0 0 12px;
+    }
+    .finish-hero p {
+      font-size: 16px;
+      color: #475569;
+      max-width: 60ch;
+      margin: 0 auto 14px;
+      line-height: 1.6;
+    }
+    .finish-quote {
+      background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+      border-left: 6px solid var(--gold);
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 580px;
+      font-style: italic;
+      color: #78350f;
+      font-size: 15px;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .loading-screen { text-align: center; padding: 60px 20px; }
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(11,99,206,.15);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-screen { text-align: center; padding: 40px 20px; }
+    .error-icon { font-size: 60px; margin-bottom: 16px; }
+
+    .signature {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+    }
+    .footer {
+      margin-top: 14px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      font-family: Arial, sans-serif;
+    }
+
+    .status {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      min-height: 22px;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .status-success { color: #10b981; }
+    .status-error { color: #ef4444; }
+    .status-pending { color: #f59e0b; }
+  
+    /* ══════════════════════════════════════════════════════════
+       MOBILE RESPONSIVO — smartphones (≤480px)
+       Desktop / notebook / MacBook: SEM alterações
+    ══════════════════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+
+      .shell { overflow: visible; }
+
+      body  { padding: 4px; }
+      .wrap { padding: 12px; }
+      .card { padding: 14px 12px; }
+
+      /* ── Barra de progresso sticky ── */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(244,249,255,.97);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        margin: 0 -12px;
+        padding: 8px 12px 4px;
+        border-bottom: 1px solid rgba(11,99,206,.12);
+      }
+      .progress-bar {
+        margin: 0 -12px;
+        border-radius: 0;
+        height: 8px;
+      }
+
+      /* ── Pergunta ── */
+      .question-card  { margin-top: 8px; padding: 12px 10px 10px; }
+      .question-title { font-size: 17px; min-height: 48px; line-height: 1.4; margin-bottom: 6px; }
+      .question-helper { font-size: 11px; margin-bottom: 10px; }
+
+      /* ── Cabeçalho compacto no mobile ── */
+      .main-title {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+      .sub-title {
+        font-size: 18px;
+        line-height: 1.2;
+        margin-top: 6px;
+      }
+
+      /* ── Etapas com tamanho uniforme (2 + 1) ── */
+      .etapa-breadcrumb {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        align-items: stretch;
+      }
+      .etapa-item {
+        width: 100%;
+        min-height: 42px;
+        justify-content: center;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 11px;
+      }
+      .etapa-breadcrumb .etapa-item:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 4px);
+        margin: 0 auto;
+      }
+
+      /* ── Opções 1-5: layout 2 – 2 – 1 centralizado ── */
+      .options {
+        gap: 7px;
+        justify-content: center;
+        margin-top: 4px;
+      }
+      .opt {
+        flex: 0 1 calc(50% - 4px);
+        max-width: calc(50% - 4px);
+        min-width: 0;
+        min-height: 66px;
+        padding: 8px 6px;
+        font-size: 12px;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .opt-num   { font-size: 20px; }
+      .opt small  { font-size: 10px; }
+
+      /* ── Botões de navegação ── */
+      .nav { gap: 8px; margin-top: 10px; flex-wrap: nowrap; }
+      .btn { padding: 12px 14px; font-size: 13px; min-height: 44px; border-radius: 12px; }
+    }
+
+    </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="wrap">
+
+      <div class="header">
+        <p class="main-title">Instituto Impulso IE™ de Liderança</p>
+        <p class="tagline">Avaliação 360° Espelho — A percepção que constrói líderes</p>
+        <h1 class="sub-title">Sua opinião transforma alguém</h1>
+        <p id="header-invite-text" class="header-desc">Você foi convidado(a) para uma avaliação <strong>100% anônima</strong>, baseada na metodologia DISC e nas dimensões premium de liderança usadas pelas maiores escolas de coaching do mundo.</p>
+      </div>
+
+      <!-- STEP: LOADING -->
+      <section id="step-loading" class="step active">
+        <div class="loading-screen">
+          <div class="loading-spinner"></div>
+          <h2 style="color:#062b62;font-family:Arial,sans-serif;font-weight:900;font-size:20px;">Validando seu convite...</h2>
+          <p style="color:#64748b;font-size:14px;">Aguarde alguns instantes.</p>
+        </div>
+      </section>
+
+      <!-- STEP: ERROR -->
+      <section id="step-error" class="step">
+        <div class="error-screen">
+          <div class="error-icon">⚠️</div>
+          <h2 style="color:#991b1b;font-family:Arial,sans-serif;font-weight:900;font-size:24px;">Convite Inválido</h2>
+          <p id="error-message" style="color:#475569;font-size:15px;margin:14px auto;max-width:500px;">
+            O link que você acessou parece inválido ou expirado. Verifique com a pessoa que te enviou e tente novamente.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP: WELCOME -->
+      <section id="step-welcome" class="step">
+        <div class="welcome-hero">
+          <div class="icon-360">🪞</div>
+          <h2>Você foi escolhido(a)!</h2>
+          <p class="subtitle">Alguém especial confia na sua opinião e quer crescer com seu olhar.</p>
+
+          <div class="avaliado-card">
+            <div class="label">Você está avaliando</div>
+            <div class="nome" id="welcome-avaliado-nome">-</div>
+            <div class="info" id="welcome-avaliado-info">-</div>
+          </div>
+
+          <div class="privacy-badge">
+            🔒 Suas respostas são <strong style="margin-left:4px;">100% anônimas</strong>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <p><strong>Por que sua opinião é tão valiosa?</strong></p>
+          <p>A pessoa que te convidou acabou de fazer uma autoavaliação comportamental DISC. Agora ela quer descobrir <strong>como o mundo realmente a vê</strong>. Esse é o segredo dos grandes líderes: enxergar pontos cegos que só pessoas próximas conseguem perceber.</p>
+
+          <p style="margin-top:14px;"><strong>O que esperamos de você:</strong></p>
+          <ul>
+            <li><strong>Sinceridade absoluta:</strong> não responda o que é "esperado", responda o que você realmente percebe.</li>
+            <li><strong>Pense no comportamento mais frequente</strong> da pessoa, não em situações isoladas.</li>
+            <li><strong>Anonimato garantido:</strong> a pessoa receberá apenas médias e padrões, nunca respostas individuais.</li>
+            <li><strong>Tempo estimado:</strong> 8 a 12 minutos. Faça com calma e atenção.</li>
+          </ul>
+
+          <p style="margin-top:14px;background:#fef3c7;padding:12px;border-radius:10px;border-left:4px solid var(--gold);"><strong>💡 Dica de ouro:</strong> Imagine que a pessoa nunca vai saber quem você é. Isso libera você para ser 100% honesto(a) — e é exatamente isso que vai gerar valor real para ela.</p>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <h3 style="margin:0 0 14px;color:#062b62;font-family:Arial,sans-serif;font-size:18px;font-weight:900;">📋 Identificação Mínima (anônima)</h3>
+          <p style="font-size:13px;color:#64748b;margin-bottom:14px;">Apenas para garantir que cada pessoa responda uma única vez e classificar os tipos de relacionamento. <strong>Seu nome NÃO será revelado.</strong></p>
+
+          <div class="form-group">
+            <label>Qual é a sua relação com a pessoa avaliada? *</label>
+            <div class="relacao-grid">
+              <div class="relacao-opt" data-rel="Familiar" onclick="selecionarRelacao(this)">
+                <span class="icon">👨‍👩‍👧</span>Familiar
+              </div>
+              <div class="relacao-opt" data-rel="Cônjuge/Parceiro(a)" onclick="selecionarRelacao(this)">
+                <span class="icon">💑</span>Cônjuge / Parceiro(a)
+              </div>
+              <div class="relacao-opt" data-rel="Amigo(a)" onclick="selecionarRelacao(this)">
+                <span class="icon">🤝</span>Amigo(a) Próximo(a)
+              </div>
+              <div class="relacao-opt" data-rel="Colega de Trabalho" onclick="selecionarRelacao(this)">
+                <span class="icon">💼</span>Colega de Trabalho
+              </div>
+              <div class="relacao-opt" data-rel="Líder/Chefe" onclick="selecionarRelacao(this)">
+                <span class="icon">👔</span>Líder / Chefe
+              </div>
+              <div class="relacao-opt" data-rel="Liderado(a)" onclick="selecionarRelacao(this)">
+                <span class="icon">👥</span>Liderado(a)
+              </div>
+              <div class="relacao-opt" data-rel="Cliente" onclick="selecionarRelacao(this)">
+                <span class="icon">🛍️</span>Cliente
+              </div>
+              <div class="relacao-opt" data-rel="Outro" onclick="selecionarRelacao(this)">
+                <span class="icon">🌐</span>Outro
+              </div>
+            </div>
+            <span id="relacao-error" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="tempo-conhece">Há quanto tempo você conhece essa pessoa? *</label>
+            <div class="field">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <select id="tempo-conhece" onchange="validarBoasVindas()">
+                <option value="">Selecione...</option>
+                <option value="Menos de 1 ano">Menos de 1 ano</option>
+                <option value="1 a 3 anos">1 a 3 anos</option>
+                <option value="3 a 5 anos">3 a 5 anos</option>
+                <option value="5 a 10 anos">5 a 10 anos</option>
+                <option value="Mais de 10 anos">Mais de 10 anos</option>
+              </select>
+            </div>
+            <span id="tempo-error" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="frequencia">Com que frequência você convive com essa pessoa? *</label>
+            <div class="field">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <select id="frequencia" onchange="validarBoasVindas()">
+                <option value="">Selecione...</option>
+                <option value="Diariamente">Diariamente</option>
+                <option value="Várias vezes por semana">Várias vezes por semana</option>
+                <option value="Semanalmente">Semanalmente</option>
+                <option value="Mensalmente">Mensalmente</option>
+                <option value="Raramente">Raramente</option>
+              </select>
+            </div>
+            <span id="freq-error" class="field-error"></span>
+          </div>
+
+          <div class="nav" style="justify-content:center;margin-top:24px;">
+            <button id="btn-iniciar" class="btn btn-gold btn-block" style="max-width:380px;" onclick="iniciarAvaliacao()" disabled>
+              🚀 Iniciar Avaliação
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP: DISC -->
+      <section id="step-disc" class="step">
+        <div class="etapa-breadcrumb">
+          <div class="etapa-item active">1️⃣ DISC Comportamental</div>
+          <div class="etapa-item">2️⃣ Liderança Premium</div>
+          <div class="etapa-item">3️⃣ Feedback Aberto</div>
+        </div>
+
+        <div class="topbar">
+          <div class="counter">Pergunta <span id="disc-current">1</span> de 24</div>
+          <div class="progress-meta"><span id="disc-answered">0</span>/24 respondidas</div>
+        </div>
+
+        <div class="progress-bar">
+          <div id="disc-progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div class="card question-card">
+          <p style="text-align:center;font-size:13px;color:#94a3b8;font-weight:700;margin:0 0 12px;font-family:Arial,sans-serif;">
+            Você está avaliando: <strong id="disc-avaliado-nome" style="color:#062b62;">-</strong>
+          </p>
+          <p id="disc-question-text" class="question-title"></p>
+          <div id="disc-options" class="options"></div>
+          <div class="nav">
+            <button id="disc-btn-prev" class="btn btn-ghost" type="button" onclick="discGoPrev()">← Anterior</button>
+            <button id="disc-btn-next" class="btn btn-primary" type="button" onclick="discGoNext()">Próxima →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP: PREMIUM -->
+      <section id="step-premium" class="step">
+        <div class="etapa-breadcrumb">
+          <div class="etapa-item done">DISC Comportamental</div>
+          <div class="etapa-item active">2️⃣ Liderança Premium</div>
+          <div class="etapa-item">3️⃣ Feedback Aberto</div>
+        </div>
+
+        <div class="topbar">
+          <div class="counter">Dimensão <span id="prem-current">1</span> de 12</div>
+          <div class="progress-meta"><span id="prem-answered">0</span>/12 respondidas</div>
+        </div>
+
+        <div class="progress-bar">
+          <div id="prem-progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div class="premium-card">
+          <p style="text-align:center;font-size:13px;color:#94a3b8;font-weight:700;margin:0 0 14px;font-family:Arial,sans-serif;">
+            Avaliando: <strong id="prem-avaliado-nome" style="color:#062b62;">-</strong>
+          </p>
+
+          <div class="premium-dimension">
+            <div class="premium-icon" id="prem-icon">🎯</div>
+            <div class="premium-title">
+              <h3 id="prem-title">-</h3>
+              <p id="prem-description">-</p>
+            </div>
+          </div>
+
+          <p style="font-size:14px;color:#475569;font-weight:700;margin:14px 0 8px;text-align:center;">
+            <span id="prem-question">-</span>
+          </p>
+
+          <div class="premium-scale" id="prem-scale"></div>
+
+          <div class="scale-anchors">
+            <span>Muito Fraco</span>
+            <span>Excepcional</span>
+          </div>
+
+          <div class="nav">
+            <button id="prem-btn-prev" class="btn btn-ghost" type="button" onclick="premGoPrev()">← Anterior</button>
+            <button id="prem-btn-next" class="btn btn-primary" type="button" onclick="premGoNext()">Próxima →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP: FEEDBACK -->
+      <section id="step-feedback" class="step">
+        <div class="etapa-breadcrumb">
+          <div class="etapa-item done">DISC Comportamental</div>
+          <div class="etapa-item done">Liderança Premium</div>
+          <div class="etapa-item active">3️⃣ Feedback Aberto</div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <p style="text-align:center;font-size:13px;color:#94a3b8;font-weight:700;margin:0 0 14px;font-family:Arial,sans-serif;">
+            Compartilhe suas percepções sobre: <strong id="feedback-avaliado-nome" style="color:#062b62;">-</strong>
+          </p>
+
+          <h3 style="margin:0 0 8px;color:#062b62;font-family:Arial,sans-serif;font-size:20px;font-weight:900;text-align:center;">
+            💬 Sua opinião em palavras
+          </h3>
+          <p style="text-align:center;color:#64748b;font-size:13px;margin-bottom:18px;">
+            Esta é a parte mais valiosa! Suas palavras vão tocar profundamente quem você está avaliando.
+          </p>
+
+          <div class="form-group">
+            <label for="feedback-forcas">
+              ✅ <strong>Quais são as 3 maiores forças dessa pessoa?</strong> *
+            </label>
+            <p style="font-size:12px;color:#64748b;margin:0 0 8px;">
+              Pense em qualidades, talentos ou comportamentos que você admira nela. (mín. 30 caracteres)
+            </p>
+            <div class="field">
+              <textarea id="feedback-forcas" maxlength="800" placeholder="Ex: 1) Sabe ouvir com profundidade; 2) Tem coragem para tomar decisões difíceis; 3) Inspira pelo exemplo..." oninput="validarFeedback()"></textarea>
+              <span class="field-counter"><span id="counter-forcas">0</span>/800</span>
+            </div>
+            <span id="forcas-error" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-melhorias">
+              ⚠️ <strong>O que ela poderia melhorar para crescer ainda mais?</strong> *
+            </label>
+            <p style="font-size:12px;color:#64748b;margin:0 0 8px;">
+              Seja gentil mas honesto(a). Pense em pontos cegos ou áreas de evolução. (mín. 30 caracteres)
+            </p>
+            <div class="field">
+              <textarea id="feedback-melhorias" maxlength="800" placeholder="Ex: Às vezes age impulsivamente sob pressão; Poderia delegar mais e confiar na equipe; Comunicação poderia ser mais direta..." oninput="validarFeedback()"></textarea>
+              <span class="field-counter"><span id="counter-melhorias">0</span>/800</span>
+            </div>
+            <span id="melhorias-error" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-conselho">
+              💡 <strong>Se você pudesse dar UM conselho para essa pessoa, qual seria?</strong> *
+            </label>
+            <p style="font-size:12px;color:#64748b;margin:0 0 8px;">
+              Um conselho sincero, do coração. Algo que possa transformar a vida ou liderança dela. (mín. 30 caracteres)
+            </p>
+            <div class="field">
+              <textarea id="feedback-conselho" maxlength="500" placeholder="Ex: Confie mais no seu instinto, você acerta mais do que pensa..." oninput="validarFeedback()"></textarea>
+              <span class="field-counter"><span id="counter-conselho">0</span>/500</span>
+            </div>
+            <span id="conselho-error" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-momento">
+              🌟 <strong>Conte um momento marcante com ela</strong> (opcional)
+            </label>
+            <p style="font-size:12px;color:#64748b;margin:0 0 8px;">
+              Uma situação onde ela brilhou, te ajudou ou te marcou de alguma forma.
+            </p>
+            <div class="field">
+              <textarea id="feedback-momento" maxlength="600" placeholder="Lembro de uma vez que..." oninput="atualizarContador('feedback-momento','counter-momento')"></textarea>
+              <span class="field-counter"><span id="counter-momento">0</span>/600</span>
+            </div>
+          </div>
+
+          <div id="feedback-status" class="status"></div>
+
+          <div class="nav" style="margin-top:20px;">
+            <button id="feedback-btn-prev" class="btn btn-ghost" type="button" onclick="voltarParaPremium()">← Voltar</button>
+            <button id="feedback-btn-enviar" class="btn btn-gold btn-block" type="button" onclick="enviarAvaliacao()" disabled style="max-width:340px;">
+              ✅ Enviar Avaliação
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP: FINISH -->
+      <section id="step-finish" class="step">
+        <div class="finish-hero">
+          <div class="finish-icon">🎉</div>
+          <h2>Obrigado de coração!</h2>
+          <p>Sua avaliação foi enviada com sucesso e <strong>permanecerá 100% anônima</strong>. Você acabou de oferecer um dos presentes mais valiosos que existem: <strong>uma percepção honesta</strong>.</p>
+
+          <div class="finish-quote">
+            <strong>"O autoconhecimento começa com a coragem de ouvir."</strong><br>
+            <span style="font-size:13px;color:#92400e;">Quando <strong id="finish-avaliado-nome">essa pessoa</strong> juntar todas as percepções recebidas, terá nas mãos um mapa preciso para evoluir. Você fez parte disso. ❤️</span>
+          </div>
+
+          <p style="font-size:14px;color:#64748b;margin-top:20px;">
+            <strong>Você pode fechar esta janela.</strong><br>
+            Suas respostas já foram registradas com segurança.
+          </p>
+
+          <p class="signature">Rogério Braga — impulsoflow@gmail.com</p>
+          <p class="footer">Instituto Impulso IE™ de Liderança | Avaliação 360° Espelho</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   🔧 CONFIGURAÇÕES GERAIS
+   ═══════════════════════════════════════════════════════════════ */
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwl82lCSU8x1-QYIO3W-JcO0UsuOXCdZACvcHaSdVyFMR2udcCNdDFKDyT5kYB2wORgQ/exec";
+const API_KEY = "2026Impulso$";
+
+/* ✅ CORRIGIDO: lê os parâmetros que o backend REALMENTE envia.
+   🆕 Aceita ?codigo=DISC-XXXXX (formato novo, prioridade máxima).
+   Aceita ?id=SESSION (fluxo padrão) e ?pin=PIN (compatibilidade com links antigos).
+   Mantém fallback para ?sessionId= e ?token= por compatibilidade. */
+const urlParams   = new URLSearchParams(window.location.search);
+const CODIGO_PARAM = (urlParams.get('codigo') || urlParams.get('code') || '').toUpperCase().trim();
+const SESSION_ID  = urlParams.get('id') || urlParams.get('sessionId') || urlParams.get('token');
+const PIN_PARAM   = urlParams.get('pin');
+
+/* Estado global da avaliação */
+let avaliadoData = null;
+let relacaoSelecionada = null;
+
+/* ═══════════════════════════════════════════════════════════════
+   📋 24 AFIRMAÇÕES DISC EM 3ª PESSOA
+   ═══════════════════════════════════════════════════════════════ */
+const discQuestions = [
+  "Enfrenta desafios de frente e toma decisões com rapidez.",
+  "Adora conhecer pessoas novas e criar conexões facilmente.",
+  "Prefere ambientes calmos e previsíveis, onde todos se apoiam.",
+  "Revisa tudo com cuidado para garantir que esteja correto.",
+
+  "É direto(a) e focado(a) em resultados, mesmo que isso gere desconforto.",
+  "Tem entusiasmo contagiante e motiva os outros a agir.",
+  "É paciente e bom(a) ouvinte, especialmente em momentos difíceis.",
+  "Segue regras e procedimentos com rigor e consistência.",
+
+  "Assume riscos calculados para atingir objetivos ambiciosos.",
+  "Gosta de ser o centro das atenções e receber reconhecimento.",
+  "Valoriza a harmonia e evita conflitos sempre que possível.",
+  "Toma decisões baseadas em dados, fatos e análise lógica.",
+
+  "É competitivo(a) e orientado(a) para vencer.",
+  "É carismático(a), falante e animado(a) em qualquer ambiente.",
+  "É leal às pessoas e às causas em que acredita.",
+  "É organizado(a), sistemático(a) e orientado(a) para detalhes.",
+
+  "Sob pressão, assume o comando e age com assertividade.",
+  "Usa humor e criatividade para aliviar tensões.",
+  "Internaliza o estresse para evitar conflitos abertos.",
+  "Sob pressão, recua e foca nos dados para encontrar soluções.",
+
+  "Busca autoridade e autonomia em seu ambiente.",
+  "Inspira e motiva os outros a agir com energia.",
+  "Precisa de tempo para se adaptar a mudanças significativas.",
+  "Pode ser crítico(a) quando padrões de qualidade não são atendidos."
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   🌟 12 DIMENSÕES PREMIUM DE LIDERANÇA
+   ═══════════════════════════════════════════════════════════════ */
+const premiumDimensions = [
+  { icon: "🎯", title: "Visão Estratégica",       description: "Capacidade de enxergar além do imediato e traçar caminhos de longo prazo.", question: "Como você avalia a clareza de visão e direcionamento estratégico dessa pessoa?" },
+  { icon: "💬", title: "Comunicação Eficaz",      description: "Habilidade de transmitir ideias com clareza, escuta ativa e adaptação ao público.", question: "Quão bem essa pessoa se comunica e se faz entender em diferentes contextos?" },
+  { icon: "🤝", title: "Inteligência Emocional",  description: "Autoconsciência, empatia e gestão de emoções próprias e das pessoas ao redor.", question: "O quanto ela demonstra equilíbrio emocional e empatia nas interações?" },
+  { icon: "⚡", title: "Poder de Decisão",        description: "Coragem e clareza para decidir mesmo em ambientes de incerteza e pressão.", question: "Como você avalia a capacidade dela de tomar decisões com firmeza?" },
+  { icon: "🎨", title: "Criatividade & Inovação", description: "Geração de ideias originais e capacidade de propor novas formas de fazer.", question: "O quanto essa pessoa traz soluções criativas e inovadoras para os problemas?" },
+  { icon: "🔧", title: "Execução & Disciplina",   description: "Capacidade de transformar planos em realidade com consistência e rigor.", question: "Quão bem ela executa o que se compromete a fazer?" },
+  { icon: "🛡️", title: "Resiliência",             description: "Capacidade de se recuperar de adversidades e manter o foco sob pressão.", question: "O quanto essa pessoa se mantém firme e supera obstáculos com maturidade?" },
+  { icon: "👥", title: "Influência & Liderança",  description: "Capacidade de inspirar, mobilizar e gerar engajamento em outras pessoas.", question: "Quão bem ela inspira e influencia positivamente quem está ao redor?" },
+  { icon: "📚", title: "Aprendizado Contínuo",    description: "Abertura para aprender, evoluir e se reinventar constantemente.", question: "O quanto ela busca crescer, aprender coisas novas e evoluir como pessoa?" },
+  { icon: "⚖️", title: "Integridade & Ética",     description: "Coerência entre o que diz e faz, agindo com transparência e honestidade.", question: "Como você avalia a integridade e a ética dela no dia a dia?" },
+  { icon: "🌱", title: "Desenvolvimento de Pessoas", description: "Capacidade de fazer os outros crescerem, oferecendo feedback e suporte.", question: "O quanto essa pessoa contribui para o crescimento de quem está ao redor?" },
+  { icon: "🚀", title: "Adaptabilidade",          description: "Flexibilidade para lidar com mudanças, ambiguidade e novos cenários.", question: "Quão bem ela se adapta a mudanças e situações novas?" }
+];
+
+const premiumLabels = ["Muito Fraco", "Fraco", "Regular", "Bom", "Excepcional"];
+
+/* Estado global */
+let discCurrent = 0;
+let discResponses = new Array(discQuestions.length).fill(null);
+let premCurrent = 0;
+let premResponses = new Array(premiumDimensions.length).fill(null);
+
+/* ═══════════════════════════════════════════════════════════════
+   🚀 INICIALIZAÇÃO — agora valida via backend (JSONP)
+   ═══════════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  // 🆕 Aceita Código 360° (DISC-XXXXX) OU sessionId OU pin
+  if (!CODIGO_PARAM && !SESSION_ID && !PIN_PARAM) {
+    document.getElementById('error-message').textContent =
+      'Link inválido ou incompleto. Verifique o convite que você recebeu.';
+    showStep('step-error');
+    return;
+  }
+  validarConviteNoBackend();
+});
+
+/* Helper: chama o Apps Script via JSONP (compatível com doGet do backend) */
+function callBackendJSONP(action, payload) {
+  return new Promise((resolve, reject) => {
+    const callbackName = 'cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
+    const script = document.createElement('script');
+
+    const timeout = setTimeout(() => {
+      try { delete window[callbackName]; } catch(e) {}
+      if (script.parentNode) script.remove();
+      reject(new Error('Tempo esgotado ao contatar o servidor.'));
+    }, 20000);
+
+    window[callbackName] = (data) => {
+      clearTimeout(timeout);
+      try { delete window[callbackName]; } catch(e) {}
+      if (script.parentNode) script.remove();
+      resolve(data);
+    };
+
+    /* Codifica payload em Base64 URL-safe (UTF-8 seguro) */
+    const json = JSON.stringify(payload || {});
+    const b64 = btoa(unescape(encodeURIComponent(json)))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+    const url = WEB_APP_URL
+      + '?callback=' + encodeURIComponent(callbackName)
+      + '&action='   + encodeURIComponent(action)
+      + '&apiKey='   + encodeURIComponent(API_KEY)
+      + '&payload='  + b64;
+
+    script.src = url;
+    script.onerror = () => {
+      clearTimeout(timeout);
+      try { delete window[callbackName]; } catch(e) {}
+      if (script.parentNode) script.remove();
+      reject(new Error('Falha de rede ao contatar o servidor.'));
+    };
+    document.body.appendChild(script);
+  });
+}
+
+async function validarConviteNoBackend() {
+  try {
+    // 🆕 Envia o código 360° se a URL tiver ?codigo=DISC-XXXXX (prioridade do backend)
+    const resp = await callBackendJSONP('validateInvite', {
+      codigo: CODIGO_PARAM,
+      sessionId: SESSION_ID,
+      pin: PIN_PARAM
+    });
+
+    if (!resp || !resp.ok) {
+      const msg = (resp && (resp.error || resp.message)) || 'Convite inválido ou expirado.';
+      document.getElementById('error-message').textContent = msg;
+      showStep('step-error');
+      return;
+    }
+
+    const nome = toTitleCase(resp.nomeAvaliado || '');
+    avaliadoData = {
+      name: nome,
+      occupation: '', /* o backend ainda não retorna profissão */
+      sessionId: resp.sessionId || SESSION_ID,
+      // 🆕 Guarda o código retornado pelo backend (também serve para submit)
+      codigo: (resp.codigo || CODIGO_PARAM || '').toUpperCase(),
+      pin: PIN_PARAM || ''
+    };
+
+    /* Preenche o nome em todos os pontos da interface */
+    document.getElementById('welcome-avaliado-nome').textContent = nome || 'Pessoa avaliada';
+    document.getElementById('welcome-avaliado-info').textContent = '';
+    document.getElementById('disc-avaliado-nome').textContent = nome;
+    document.getElementById('prem-avaliado-nome').textContent = nome;
+    document.getElementById('feedback-avaliado-nome').textContent = nome;
+    document.getElementById('finish-avaliado-nome').textContent = nome;
+
+    showStep('step-welcome');
+  } catch (err) {
+    console.error('Erro ao validar convite:', err);
+    document.getElementById('error-message').textContent =
+      'Não conseguimos validar seu convite agora. Tente novamente em instantes.';
+    showStep('step-error');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🛠️ FUNÇÕES UTILITÁRIAS
+   ═══════════════════════════════════════════════════════════════ */
+function showStep(stepId) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(stepId).classList.add('active');
+  const inviteText = document.getElementById('header-invite-text');
+  if (inviteText) inviteText.style.display = (stepId === 'step-welcome') ? 'block' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toTitleCase(str) {
+  if (!str) return '';
+  const lowers = ['da','de','do','das','dos','e'];
+  return String(str).toLowerCase().split(' ').map((w,i) =>
+    i > 0 && lowers.includes(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)
+  ).join(' ');
+}
+
+function sanitize(str) {
+  return window.DOMPurify ? DOMPurify.sanitize(String(str || '')) : String(str || '');
+}
+
+function setFieldError(fieldId, errorId, message) {
+  const field = fieldId ? document.getElementById(fieldId) : null;
+  const error = document.getElementById(errorId);
+  if (!error) return !message;
+  if (message) {
+    if (field) field.classList.add('input-error');
+    error.textContent = message;
+    return false;
+  } else {
+    if (field) field.classList.remove('input-error');
+    error.textContent = '';
+    return true;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎯 BOAS-VINDAS — VALIDAÇÃO E SELEÇÃO
+   ═══════════════════════════════════════════════════════════════ */
+function selecionarRelacao(el) {
+  document.querySelectorAll('.relacao-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  relacaoSelecionada = el.dataset.rel;
+  setFieldError('', 'relacao-error', '');
+  validarBoasVindas();
+}
+
+function validarBoasVindas() {
+  const tempo = document.getElementById('tempo-conhece').value;
+  const freq = document.getElementById('frequencia').value;
+  let valid = true;
+
+  if (!relacaoSelecionada) {
+    document.getElementById('relacao-error').textContent = 'Selecione o tipo de relação.';
+    valid = false;
+  } else {
+    document.getElementById('relacao-error').textContent = '';
+  }
+
+  if (!tempo) { setFieldError('tempo-conhece','tempo-error','Selecione o tempo.'); valid = false; }
+  else setFieldError('tempo-conhece','tempo-error','');
+
+  if (!freq) { setFieldError('frequencia','freq-error','Selecione a frequência.'); valid = false; }
+  else setFieldError('frequencia','freq-error','');
+
+  document.getElementById('btn-iniciar').disabled = !valid;
+}
+
+function iniciarAvaliacao() {
+  validarBoasVindas();
+  if (document.getElementById('btn-iniciar').disabled) return;
+  discCurrent = 0;
+  showStep('step-disc');
+  renderDiscQuestion();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📊 ETAPA 1 — DISC (24 perguntas)
+   ═══════════════════════════════════════════════════════════════ */
+function renderDiscQuestion() {
+  // Scroll suave ao topo para mobile ver barra de progresso e nova pergunta
+  if (window.innerWidth <= 768) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('disc-current').textContent = discCurrent + 1;
+  document.getElementById('disc-question-text').textContent = discQuestions[discCurrent];
+
+  const optsContainer = document.getElementById('disc-options');
+  optsContainer.innerHTML = '';
+
+  const labels = [
+    { num: 1, text: 'Nada Parecido' },
+    { num: 2, text: 'Pouco Parecido' },
+    { num: 3, text: 'Mais ou Menos' },
+    { num: 4, text: 'Bem Parecido' },
+    { num: 5, text: 'Totalmente Parecido' }
+  ];
+
+  labels.forEach(lbl => {
+    const div = document.createElement('div');
+    div.className = 'opt' + (discResponses[discCurrent] === lbl.num ? ' selected' : '');
+    div.innerHTML = `<div class="opt-num">${lbl.num}</div><small>${lbl.text}</small>`;
+    div.onclick = () => {
+      discResponses[discCurrent] = lbl.num;
+      updateDiscProgress();
+      // 🆕 Auto-avança para a próxima pergunta
+      setTimeout(() => {
+        discGoNext();
+      }, 300);
+    };
+    optsContainer.appendChild(div);
+  });
+
+  document.getElementById('disc-btn-prev').disabled = discCurrent === 0;
+  document.getElementById('disc-btn-next').textContent =
+    discCurrent === discQuestions.length - 1 ? 'Continuar →' : 'Próxima →';
+  updateDiscProgress();
+}
+
+function updateDiscProgress() {
+  const answered = discResponses.filter(r => r !== null).length;
+  document.getElementById('disc-answered').textContent = answered;
+  document.getElementById('disc-progress-fill').style.width =
+    (answered / discQuestions.length * 100) + '%';
+}
+
+function discGoPrev() {
+  if (discCurrent > 0) { discCurrent--; renderDiscQuestion(); }
+}
+
+function discGoNext() {
+  if (discResponses[discCurrent] === null) {
+    alert('Por favor, selecione uma opção antes de prosseguir.');
+    return;
+  }
+  if (discCurrent < discQuestions.length - 1) {
+    discCurrent++;
+    renderDiscQuestion();
+  } else {
+    const naoRespondida = discResponses.findIndex(r => r === null);
+    if (naoRespondida !== -1) {
+      alert(`Voltando para a pergunta ${naoRespondida + 1}, que ainda não foi respondida.`);
+      discCurrent = naoRespondida;
+      renderDiscQuestion();
+      return;
+    }
+    premCurrent = 0;
+    showStep('step-premium');
+    renderPremiumQuestion();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🌟 ETAPA 2 — 12 DIMENSÕES PREMIUM
+   ═══════════════════════════════════════════════════════════════ */
+function renderPremiumQuestion() {
+  // Scroll suave ao topo para mobile ver barra de progresso e nova questão
+  if (window.innerWidth <= 768) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  const dim = premiumDimensions[premCurrent];
+
+  document.getElementById('prem-current').textContent = premCurrent + 1;
+  document.getElementById('prem-icon').textContent = dim.icon;
+  document.getElementById('prem-title').textContent = dim.title;
+  document.getElementById('prem-description').textContent = dim.description;
+  document.getElementById('prem-question').textContent = dim.question;
+
+  const scaleContainer = document.getElementById('prem-scale');
+  scaleContainer.innerHTML = '';
+
+  for (let i = 1; i <= 5; i++) {
+    const div = document.createElement('div');
+    div.className = 'scale-opt' + (premResponses[premCurrent] === i ? ' selected' : '');
+    div.innerHTML = `<div class="num">${i}</div><div class="lbl">${premiumLabels[i-1]}</div>`;
+    div.onclick = () => {
+      premResponses[premCurrent] = i;
+      updatePremiumProgress();
+      // 🆕 Auto-avança para a próxima dimensão
+      setTimeout(() => {
+        premGoNext();
+      }, 300);
+    };
+    scaleContainer.appendChild(div);
+  }
+
+  document.getElementById('prem-btn-prev').disabled = premCurrent === 0;
+  document.getElementById('prem-btn-next').textContent =
+    premCurrent === premiumDimensions.length - 1 ? 'Continuar →' : 'Próxima →';
+  updatePremiumProgress();
+}
+
+function updatePremiumProgress() {
+  const answered = premResponses.filter(r => r !== null).length;
+  document.getElementById('prem-answered').textContent = answered;
+  document.getElementById('prem-progress-fill').style.width =
+    (answered / premiumDimensions.length * 100) + '%';
+}
+
+function premGoPrev() {
+  if (premCurrent > 0) { premCurrent--; renderPremiumQuestion(); }
+  else { showStep('step-disc'); discCurrent = discQuestions.length - 1; renderDiscQuestion(); }
+}
+
+function premGoNext() {
+  if (premResponses[premCurrent] === null) {
+    alert('Por favor, selecione uma opção antes de prosseguir.');
+    return;
+  }
+  if (premCurrent < premiumDimensions.length - 1) {
+    premCurrent++;
+    renderPremiumQuestion();
+  } else {
+    const naoRespondida = premResponses.findIndex(r => r === null);
+    if (naoRespondida !== -1) {
+      alert(`Voltando para a dimensão ${naoRespondida + 1}, que ainda não foi avaliada.`);
+      premCurrent = naoRespondida;
+      renderPremiumQuestion();
+      return;
+    }
+    showStep('step-feedback');
+  }
+}
+
+function voltarParaPremium() {
+  premCurrent = premiumDimensions.length - 1;
+  showStep('step-premium');
+  renderPremiumQuestion();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   💬 ETAPA 3 — FEEDBACK ABERTO
+   ═══════════════════════════════════════════════════════════════ */
+function atualizarContador(textareaId, counterId) {
+  const textarea = document.getElementById(textareaId);
+  const counter = document.getElementById(counterId);
+  if (textarea && counter) {
+    counter.textContent = textarea.value.length;
+  }
+}
+
+function validarFeedback() {
+  const forcas = document.getElementById('feedback-forcas').value.trim();
+  const melhorias = document.getElementById('feedback-melhorias').value.trim();
+  const conselho = document.getElementById('feedback-conselho').value.trim();
+
+  atualizarContador('feedback-forcas','counter-forcas');
+  atualizarContador('feedback-melhorias','counter-melhorias');
+  atualizarContador('feedback-conselho','counter-conselho');
+  atualizarContador('feedback-momento','counter-momento');
+
+  let valid = true;
+
+  if (forcas.length < 30) { setFieldError('feedback-forcas','forcas-error','Mínimo de 30 caracteres.'); valid = false; }
+  else setFieldError('feedback-forcas','forcas-error','');
+
+  if (melhorias.length < 30) { setFieldError('feedback-melhorias','melhorias-error','Mínimo de 30 caracteres.'); valid = false; }
+  else setFieldError('feedback-melhorias','melhorias-error','');
+
+  if (conselho.length < 30) { setFieldError('feedback-conselho','conselho-error','Mínimo de 30 caracteres.'); valid = false; }
+  else setFieldError('feedback-conselho','conselho-error','');
+
+  document.getElementById('feedback-btn-enviar').disabled = !valid;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📤 ENVIO FINAL DA AVALIAÇÃO — agora compatível com o backend
+   ═══════════════════════════════════════════════════════════════ */
+async function enviarAvaliacao() {
+  validarFeedback();
+  const btn = document.getElementById('feedback-btn-enviar');
+  if (btn.disabled) return;
+
+  const statusEl = document.getElementById('feedback-status');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-spinner" style="width:16px;height:16px;border-width:3px;display:inline-block;vertical-align:middle;margin:0 8px 0 0;"></span> Enviando...';
+  statusEl.textContent = '⏳ Enviando sua avaliação anônima...';
+  statusEl.className = 'status status-pending';
+
+  /* ✅ Payload no formato EXATO esperado pelo backend (handleSubmitConvidado) */
+  const payload = {
+    apiKey: API_KEY,
+    action: 'submitConvidado',
+    // 🆕 Envia o Código 360° (DISC-XXXXX) — backend prioriza este sobre sessionId/pin
+    codigo: (avaliadoData.codigo || CODIGO_PARAM || '').toUpperCase(),
+    sessionId: avaliadoData.sessionId,
+
+    /* Contexto do avaliador (anônimo) */
+    relacao: relacaoSelecionada,
+    tempoConvivencia: document.getElementById('tempo-conhece').value,
+    frequencia: document.getElementById('frequencia').value,
+
+    /* Respostas DISC (24 itens — backend mapeia indices D/I/S/C internamente) */
+    respostas: discResponses,
+
+    /* 12 dimensões premium (escala 1-5) */
+    premium: premResponses,
+
+    /* Feedbacks abertos — nomes EXATOS aceitos pelo backend */
+    forcaPrincipal: sanitize(document.getElementById('feedback-forcas').value.trim()),
+    pontoMelhoria:  sanitize(document.getElementById('feedback-melhorias').value.trim()),
+    sugestaoSBI:    sanitize(document.getElementById('feedback-conselho').value.trim()),
+    momentoMarcante: sanitize(document.getElementById('feedback-momento').value.trim())
+  };
+
+  try {
+    /* POST com text/plain — Apps Script aceita sem CORS preflight
+       e dessa vez conseguimos LER a resposta do servidor */
+    const resp = await fetch(WEB_APP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    let data = null;
+    try {
+      data = await resp.json();
+    } catch (e) {
+      throw new Error('Resposta inválida do servidor.');
+    }
+
+    if (data && data.ok) {
+      statusEl.textContent = '✅ Avaliação enviada com sucesso!';
+      statusEl.className = 'status status-success';
+      setTimeout(() => { showStep('step-finish'); }, 1200);
+    } else {
+      throw new Error((data && (data.error || data.message)) || 'Falha ao enviar.');
+    }
+  } catch (err) {
+    console.error('Erro ao enviar:', err);
+    statusEl.textContent = '❌ ' + (err.message || 'Erro ao enviar.') + ' Tente novamente.';
+    statusEl.className = 'status status-error';
+    btn.disabled = false;
+    btn.innerHTML = '✅ Enviar Avaliação';
+  }
+}
+</script>
+</body>
+</html>
